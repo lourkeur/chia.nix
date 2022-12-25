@@ -16,6 +16,7 @@
           replaceOlderAttr prev' {
             # https://nixpk.gs/pr-tracker.html?pr=200769
             blspy = final'.callPackage python/blspy {};
+            chia = final'.callPackage python/chia {};
             chia-rs = final'.callPackage python/chia-rs {};
             chiapos = final'.callPackage python/chiapos {};
             chiavdf = final'.callPackage python/chiavdf {};
@@ -30,7 +31,7 @@
     // replaceOlderAttr prev {
       chia-beta = final.callPackage ./chia-beta {};
       chia-rc = final.callPackage ./chia-rc {};
-      chia = final.callPackage ./chia {};
+      chia = with final.python3Packages; toPythonApplication chia;
       chia-dev-tools = final.callPackage ./chia-dev-tools {};
     });
 in {

@@ -4,7 +4,7 @@
   fetchFromGitHub,
   python3Packages,
 }: let
-  chia = python3Packages.buildPythonApplication rec {
+  chia = python3Packages.buildPythonPackage rec {
     pname = "chia";
     version = "1.6.1";
 
